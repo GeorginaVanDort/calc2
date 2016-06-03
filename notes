@@ -1,0 +1,350 @@
+var num1 = parseInt(prompt("number"));
+var num2 = parseInt(prompt("number"));
+var add = function(num1,num2){
+alert(num1+num2);
+}
+add(num1,num2);
+—————————————
+ var name = prompt("what is your name");
+var greeting = function(name){
+alert("hi "+name);
+}
+greeting(name);
+—————————————
+var num1 = parseInt(prompt("number"));
+var num2 = parseInt(prompt("number"));
+var num3 = parseInt(prompt("number"));
+
+var answer = function(num1, num2, num3){
+alert(num1+num2+num3);
+}
+answer(num1, num2, num3);
+—————————————
+
+var triangle = function(sideOne, sideTwo, sideThree){
+
+
+
+  if (sideOne === sideTwo && sideTwo=== sideThree){
+
+    return "equilateral";
+
+  }
+
+
+
+  else if (sideOne === sideTwo || sideTwo === sideThree || sideThree === sideOne){
+
+    return "Isosceles"
+
+  }
+
+
+
+  else if (sideOne + sideTwo <= sideThree || sideThree + sideOne <= sideTwo || sideTwo + sideThree <=sideOne){
+
+    return "not a triangle"
+
+  }
+
+
+
+  else if (sideOne !== sideTwo && sideTwo !== sideThree && sideOne !== sideThree){
+
+    return "scalene";
+
+  }
+
+
+
+  else {
+
+    console.log("something's wrong"); 
+
+  }
+
+
+
+};
+
+
+
+$(document).ready(function() {
+
+  $("form#triangle").submit(function(event) {
+
+    var sideOne = parseInt($("input#sideOne").val());
+
+    var sideTwo = parseInt($("input#sideTwo").val());
+
+    var sideThree = parseInt($("input#sideThree").val());
+
+    var result = triangle(sideOne, sideTwo, sideThree);
+
+
+
+    sideOne = parseInt($("input#sideOne").val(""));
+
+    sideTwo = parseInt($("input#sideTwo").val(""));
+
+    sideThree = parseInt($("input#sideThree").val(""));
+
+
+
+    $("#result").text(result);
+
+    event.preventDefault();
+
+  });
+
+});
+———————————
+
+var add = function() {
+  var number1 = parseInt($("#add1").val());
+  var number2 = parseInt($("#add2").val());
+  return number1 + number2;
+};
+
+var sub = function() {
+  var number1 = parseInt($("#sub1").val());
+  var number2 = parseInt($("#sub2").val());
+  return number1 - number2;
+};
+
+var mult = function() {
+  var number1 = parseInt($("#mult1").val());
+  var number2 = parseInt($("#mult2").val());
+  return number1 * number2;
+};
+
+var divide = function() {
+  var number1 = parseInt($("#divide1").val());
+  var number2 = parseInt($("#divide2").val());
+  return number1 / number2;
+};
+
+$(document).ready(function(){
+
+  $("form#add").submit(function(event) {
+    event.preventDefault();
+    $("h2#add-result").text(add()+" Enjoy your trip!").val();
+    $("body").addClass("rainbow");
+  });
+
+  $("form#sub").submit(function(event) {
+    event.preventDefault();
+    $("h2#sub-result").text(sub()+" Enjoy your trip!").val();
+    $("body").addClass("rainbow");
+  });
+
+  $("form#mult").submit(function(event) {
+    event.preventDefault();
+    $("h2#mult-result").text(mult()+" Enjoy your trip!").val();
+    $("body").addClass("rainbow");
+  });
+
+  $("form#divide").submit(function(event) {
+    event.preventDefault();
+    $("h2#divide-result").text(divide()+" Enjoy your trip!").val();
+    $("body").addClass("rainbow");
+  });
+
+  $("#no-more").click(function(){
+    $("body").removeClass();
+  })
+
+
+});
+—————————————
+$(document).ready(function() {
+  $("form#questions").submit(function() {
+    var weatherVal = $("select#weather").val();
+    var landscapeVal = $("select#landscape").val();
+    var fancyVal = $("select#fancy").val();
+
+    var distanceVal = $("select#distance").val();
+    var factionVal = $("select#faction").val();
+
+    var className = "." + weatherVal + "." + landscapeVal + "." + fancyVal;
+
+    if ( distanceVal === "far" ) {
+      $("p.distance").append("<br><strong>Good thing you want to travel far, cuz this place is off the maps!</strong>");
+    } else if ( distanceVal === "notfar" ){
+      $("p.distance").append("<br><strong>You said not too far, this planet isn't TOO far..</strong>");
+    }
+
+    if ( factionVal === "dark" ) {
+      $("#red").toggle();
+    } else if ( factionVal === "light" ) {
+      $("#green").toggle();
+    }
+
+    $("#first").toggle();
+    $(className).toggle();
+
+    event.preventDefault();
+  });
+});
+
+———————————
+$(document).ready(function() {
+
+  console.log("document loaded")
+
+  $("form#radios").submit(function(event) {
+
+      var place = $("input:radio[name=fave]:checked").val();
+      var temperature = $("input:radio[name=temp]:checked").val();
+      var scared = $("input:radio[name=afraid]:checked").val();
+      var bodyOfWater = $("input:radio[name=water]:checked").val();
+      var tree = $("input:radio[name=tree]:checked").val();
+
+    console.log("did we make it here?")
+
+    if (place === "forest") {
+      $("#craterLake").removeClass("gone");
+    }
+
+    else if (place === "beach") {
+      $("#belize").removeClass("gone");
+    }
+
+    else if (place === "jungle") {
+      $("#amazon").removeClass("gone");
+    }
+
+    else if (place === "mountain") {
+      $("#craterLake").removeClass("gone");
+    }
+
+
+    else {
+      $("#jail").removeClass("gone");
+    }
+
+
+
+
+    // if (place === "forest" && temperature === "hot" && scared === "spiders" && bodyOfWater === "ocean" && tree === palm) {
+    //   $(".showpic").removeClass("showpic");
+    //   $(".belize").addClass("showpic");
+    // } else if (place === "beach" && temperature === "hot" && scared === "snakes" && bodyOfWater === "ocean" && tree === palm) {
+    //   $(".showpic").removeClass("showpic");
+    //   $(".belize").addClass("showpic");
+    // } else if (place === "mountain" && temperature === "cold" && scared === "giantSquid" && bodyOfWater === "lake" && tree === pine) {
+    //   $(".showpic").removeClass("showpic");
+    //   $(".craterLake").addClass("showpic");
+    // } else if (place === "jungle" && temperature === "hot" && scared === "sharks" && bodyOfWater === "river" && tree === palm) {
+    //   $(".showpic").removeClass("showpic");
+    //   $(".amazon").addClass("showpic"); }
+    event.preventDefault();
+  });
+});
+
+———————————————
+
+$(document).ready(function() {
+  $("form#questions").submit(function(event) {
+    var hot = $("select#hot").val();
+    var cold = $("select#cold").val();
+    var animals = $("select#animals").val();
+    var swimming = $("select#swimming").val();
+    var age = $("select#age").val();
+
+    $(".destination").hide();
+
+    if (hot === "hotYes") {
+      $("#Hawaii").show();
+    } else if (hot === "hotNo") {
+      $("#Antarctica").show ();
+    }
+
+    if (age === "ageYes") {
+      $("#Hawaii").show();
+    } else if (age === "ageNo") {
+      $("#Rome").show ();
+      }
+
+    if (age === "ageYes" && swimming === "swimmingNo") {
+      $("#Rome").show();
+    } else if (age === "ageNo" & swimming === "swimmingYes") {
+      $("#Antarctica").show();
+    }
+
+    if (animals === "animalsYes" && hot === "hotYes") {
+      $("#Hawaii").show();
+    } else if (animals === "animalsNo" && hot === "hotNo") {
+      $("#Rome").show();
+    }
+    event.preventDefault();
+  });
+});
+
+————————————
+
+$(document).ready(function(){
+  $("#dating").submit(function(event) {
+    $("#malerock, #femalerock, #enbyrock, #malerap, #femalerap, #enbyrap").hide();
+
+    var music = $("select#music").val();
+    var gender = $("select#gender").val();
+
+    if (music === 'rock' && gender === 'male') {
+      $("#malerock").show();
+    } else if (music === 'rock' && gender === 'female') {
+      $('#femalerock').show();
+    } else if (music === 'rock' && gender === 'enby') {
+      $('#enbyrock').show();
+    } else if (music === 'rap' && gender === 'male') {
+      $('#malerap').show();
+    } else if (music === 'rap' && gender === 'female') {
+      $('#femalerap').show();
+    } else if (music === 'rap' && gender === 'enby') {
+      $('#enbyrap').show();
+  };
+    event.preventDefault();
+  });
+
+});
+
+———————————
+
+$(function() {
+  $('form').submit(function(event) {
+    event.preventDefault();
+
+    var age = $('#age').val();
+    var genderPref = $('#genderPref').val();
+
+    $('.men-sixty').hide();
+    $('.men-fifty').hide();
+    $('.men-under50').hide();
+    $('.woman-sixty').hide();
+    $('.woman-fifty').hide();
+    $('.woman-under50').hide();
+
+    if (age === "") {
+      // alert('Please enter an age');
+      $('#age').addClass('red glyphicon glyphicon-wrench');
+      $('#age').after('<i class="redText"> *Please add your age </i>');
+    } else if (age >= 60 && genderPref === 'men') {
+        $('.men-sixty').show();
+    } else if (age >= 50 && age < 60 && genderPref === 'men') {
+        $('.men-fifty').show();
+    } else if (age < 50 && genderPref === 'men') {
+        $('.men-under50').show();
+    } else if (age >= 60 && genderPref === 'women') {
+        $('.woman-sixty').show();
+    } else if (age >= 50 && age < 60 && genderPref === 'women') {
+        $('.woman-fifty').show();
+    } else if (age < 50 && genderPref === 'women') {
+        $('.woman-under50').show();
+    } else {
+
+    }
+  });
+
+});
+Status API Training Shop Blog About
+ 
